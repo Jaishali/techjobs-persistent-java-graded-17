@@ -32,10 +32,11 @@ public class HomeController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @RequestMapping("")
+    @RequestMapping("/")
     public String index(Model model) {
 
         model.addAttribute("title", "My Jobs");
+        model.addAttribute("job",jobRepository.findAll());
 
         List jobs = (List<Job>) jobRepository.findAll();
         model.addAttribute("jobs", jobs );
